@@ -1,0 +1,7 @@
+require("config.plugins")
+require("config.lsp")
+require("config.cmp")
+require("config.treesitter")
+require("config.keybindings")
+require("config.colorscheme")
+require("config.settings")
