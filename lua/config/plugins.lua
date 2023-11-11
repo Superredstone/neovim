@@ -16,11 +16,17 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 	-- Colorscheme
+	"zaldih/themery.nvim",
 	"navarasu/onedark.nvim",
+	"ellisonleao/gruvbox.nvim",
+	"folke/tokyonight.nvim",
 
 	-- Status bar
 	"nvim-lualine/lualine.nvim",
 	"akinsho/bufferline.nvim",
+
+	-- Git integration
+	"lewis6991/gitsigns.nvim",
 
 	-- File tree
 	"nvim-tree/nvim-web-devicons",
@@ -57,6 +63,7 @@ require("lazy").setup(plugins)
 -- Setup plugins
 require("lualine").setup()
 require("bufferline").setup()
+require("gitsigns").setup()
 require("nvim-tree").setup()
 require("nvim_comment").setup()
 require("autoclose").setup()
