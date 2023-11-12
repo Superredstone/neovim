@@ -42,6 +42,9 @@ local plugins = {
 	-- Auto close parenthesis
 	"m4xshen/autoclose.nvim",
 
+	-- Better terminal
+	"akinsho/toggleterm.nvim",
+
 	-- Treesitter
 	"nvim-treesitter/nvim-treesitter",
 
