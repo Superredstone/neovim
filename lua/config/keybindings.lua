@@ -25,10 +25,12 @@ map("n", "<Space>g", ":Telescope live_grep<CR>", opts)
 -- Movement
 map("n", "gl", "$", opts)
 map("n", "gh", "^", opts)
+map("v", "gl", "$", opts)
+map("v", "gh", "^", opts)
 
 -- Terminal
 map("t", "<Esc>", "<C-\\><C-n>")
-map("n", "<C-t>", ":ToggleTerm direction=float<CR>")
+map("n", "<Space>t", ":ToggleTerm direction=float<CR>")
 
 -- LSP
 map("n", "<Space>k", function() vim.lsp.buf.hover() end, opts)
@@ -36,4 +38,4 @@ map("n", "<Space>r", function() vim.lsp.buf.rename() end, opts)
 map("n", "<Space>a", function() vim.lsp.buf.code_action() end, opts)
 
 -- Change colorscheme
-map("n", "<Space>t", function() vim.cmd([[Themery]]) end, opts)
+map("n", "<C-t>", function() vim.cmd([[Themery]]) end, opts)
