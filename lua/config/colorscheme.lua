@@ -19,6 +19,14 @@ require("themery").setup({
 		{
 			name = "Tokyonight",
 			colorscheme = "tokyonight"
+		},
+		{
+			name = "Catpuccin Mocha",
+			colorscheme = "catppuccin-mocha"
+		},
+		{
+			name = "Catpuccin Macchiato",
+			colorscheme = "catppuccin-macchiato"
 		}
 	},
 	livePreview = true,
@@ -30,6 +38,6 @@ vim.cmd([[colorscheme onedark]])
 
 -- Themery block
 -- This block will be replaced by Themery.
-vim.cmd("colorscheme onedark")
-vim.g.theme_id = 1
+vim.cmd("colorscheme catppuccin-mocha")
+vim.g.theme_id = 4
 -- end themery block

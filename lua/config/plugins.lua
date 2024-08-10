@@ -20,6 +20,7 @@ local plugins = {
 	"navarasu/onedark.nvim",
 	"ellisonleao/gruvbox.nvim",
 	"folke/tokyonight.nvim",
+	"catppuccin/nvim",
 
 	-- Status bar
 	"nvim-lualine/lualine.nvim",
