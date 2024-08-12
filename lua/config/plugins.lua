@@ -66,7 +66,6 @@ require("lazy").setup(plugins)
 
 -- Setup plugins
 require("lualine").setup()
-require("bufferline").setup()
 require("gitsigns").setup()
 require("nvim-tree").setup()
 require("nvim_comment").setup()
