@@ -56,5 +56,5 @@ require('lazy').setup({
 })
 
 require 'config'
-require 'keymap'
 require 'autocommands'
+require 'keymap'

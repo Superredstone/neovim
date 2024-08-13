@@ -15,6 +15,18 @@ return {
     'hrsh7th/cmp-nvim-lsp',
   },
   config = function()
+    local signs = {
+      Error = '',
+      Warn = '',
+      Hint = '',
+      Info = '',
+    }
+    for type, icon in pairs(signs) do
+      local hl = 'LspDiagnosticsSign' .. type
+      local hl = 'DiagnosticSign' .. type
+      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+    end
+
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
       callback = function(event)
@@ -91,6 +103,7 @@ return {
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
     local servers = {
+      hls = { filetypes = { 'haskell', 'lhaskell', 'cabal' } },
       lua_ls = {
         settings = {
           Lua = {
