@@ -1,12 +1,6 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
--- Clear highlights on search when pressing <Esc> in normal mode
--- map('n', '<Esc>', '<cmd>nohlsearch<CR>', opts)
-
--- Diagnostic keymaps
--- map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-
 map('n', '<A-l>', ':bnext<CR>', opts) -- Next buffer
 map('n', '<A-h>', ':bprevious<CR>', opts) -- Last buffer
 map('n', '<C-s>', ':w<CR>', opts) -- Save
@@ -15,8 +9,6 @@ map('n', 'q', ':bdelete<CR>', opts) -- Close current buffer
 map('n', '<Space>e', ':NvimTreeToggle<CR>', opts) -- Open file tree
 map('n', '<C-c>', ':CommentToggle<CR>', opts) -- Toggle comment n mode
 map('v', '<C-c>', ':CommentToggle<CR>', opts) -- Toggle comment v mode
--- map('n', '<Space>q', ':bdelete<CR>', opts) -- Close buffer
--- map('n', '<S-q>', ':bdelete!<CR>', opts) -- Close buffer!
 
 -- Move between windows
 map('n', '<Space>wl', ':wincmd l<CR>', opts)
@@ -39,15 +31,9 @@ map('t', '<Esc>', '<C-\\><C-n>')
 map('n', '<leader>t', ':ToggleTerm direction=float<CR>')
 
 -- LSP
-map('n', '<Space>k', function()
-  vim.lsp.buf.hover()
-end, opts)
-map('n', '<Space>r', function()
-  vim.lsp.buf.rename()
-end, opts)
-map('n', '<Space>a', function()
-  vim.lsp.buf.code_action()
-end, opts)
+map('n', '<leader>k', vim.lsp.buf.hover, opts)
+map('n', '<leader>r', vim.lsp.buf.rename, opts)
+map('n', '<leader>a', vim.lsp.buf.code_action, opts)
 
 -- Change colorscheme
 map('n', '<C-t>', function()

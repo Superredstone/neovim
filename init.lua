@@ -12,6 +12,7 @@ require('lazy').setup({
   require 'plugins.colorschemes',
 
   require 'plugins.nvim-tree',
+  { require 'plugins.autoclose' },
 
   { require 'plugins.which-key' },
 
