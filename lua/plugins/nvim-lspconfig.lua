@@ -3,9 +3,9 @@ return {
   'neovim/nvim-lspconfig',
   dependencies = {
     -- Automatically install LSPs and related tools to stdpath for Neovim
-    { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
-    'williamboman/mason-lspconfig.nvim',
-    'WhoIsSethDaniel/mason-tool-installer.nvim',
+    -- { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
+    -- 'williamboman/mason-lspconfig.nvim',
+    -- 'WhoIsSethDaniel/mason-tool-installer.nvim',
 
     -- Useful status updates for LSP.
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -102,34 +102,42 @@ return {
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
     local servers = {
-      hls = { filetypes = { 'haskell', 'lhaskell', 'cabal' } },
-      lua_ls = {
-        settings = {
-          Lua = {
-            completion = {
-              callSnippet = 'Replace',
-            },
-          },
-        },
+      clangd = { 
+
+        cmd = { "clangd" } 
       },
+      -- hls = { filetypes = { 'haskell', 'lhaskell', 'cabal' } },
+      -- lua_ls = {
+      --   settings = {
+      --     Lua = {
+      --       completion = {
+      --         callSnippet = 'Replace',
+      --       },
+      --     },
+      --   },
+      -- },
     }
+    local lsp = require('lspconfig')
+    lsp.clangd.setup({})
+    lsp.luals.setup({})
 
-    require('mason').setup()
+    -- ----------------- Uncomment the following to re-enable Mason ---------------------------
+    -- require('mason').setup()
 
-    local ensure_installed = vim.tbl_keys(servers or {})
-    vim.list_extend(ensure_installed, {
-      'stylua', -- Used to format Lua code
-    })
-    require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+    -- local ensure_installed = vim.tbl_keys(servers or {})
+    -- vim.list_extend(ensure_installed, {
+      -- 'stylua', -- Used to format Lua code
+    -- })
+    -- require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
-    require('mason-lspconfig').setup {
-      handlers = {
-        function(server_name)
-          local server = servers[server_name] or {}
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
-        end,
-      },
-    }
+    -- require('mason-lspconfig').setup {
+    --   handlers = {
+    --     function(server_name)
+    --       local server = servers[server_name] or {}
+    --       server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+    --       require('lspconfig')[server_name].setup(server)
+    --     end,
+    --   },
+    -- }
   end,
 }
