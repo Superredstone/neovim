@@ -117,9 +117,7 @@ return {
       --   },
       -- },
     }
-    local lsp = require('lspconfig')
-    lsp.clangd.setup({})
-    lsp.luals.setup({})
+    require("plugins.lsp")
 
     -- ----------------- Uncomment the following to re-enable Mason ---------------------------
     -- require('mason').setup()
