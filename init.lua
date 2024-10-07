@@ -10,6 +10,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   require 'plugins.colorschemes',
+  require 'plugins.transparent',
 
   require 'plugins.nvim-tree',
   { require 'plugins.autoclose' },
